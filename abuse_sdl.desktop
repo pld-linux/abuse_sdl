@@ -5,7 +5,7 @@ Comment=Abuse Game
 Comment[pl]=Gra Abuse
 Icon=abuse.png
 Exec=abuse.sdl
-Terminal=0
+Terminal=false
 Type=Application
 
 # vi: encoding=utf-8
