@@ -1,4 +1,4 @@
-Summary:	An SDL port of the game Abuse.
+Summary:	An SDL port of the game Abuse
 Summary(pl):	Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.6.1
@@ -21,6 +21,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Abuse-SDL is a port of Abuse, the classic Crack-Dot-Com game, to the
 SDL library. It can run at any color depth, in a window or fullscreen,
 and it has stereo sound with sound panning.
+
+%description -l pl
+Abuse-SDL to port Abuse, klasycznej gry Crack-Dot-Com, dla biblioteki
+SDL. Mo¿e dzia³aæ w dowolnej g³êbi koloru, w okienku lub na pe³nym
+ekranie, ma d¼wiêk stereo z panningiem.
 
 %prep
 %setup -q -a 1
@@ -55,17 +60,27 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README* TODO
 %attr(755,root,root) %{_bindir}/*
+# can't these be simplified?
 %dir %{_abusedir}
 %{_abusedir}/*.bmp
 %{_abusedir}/*.png
 %{_abusedir}/*.lsp
+%dir %{_abusedir}/sfx
 %{_abusedir}/sfx/*.wav
+%dir %{_abusedir}/register
 %{_abusedir}/register/*
+%dir %{_abusedir}/netlevel
 %{_abusedir}/netlevel/*.spe
+%dir %{_abusedir}/music
 %{_abusedir}/music/*
+%dir %{_abusedir}/lisp
 %{_abusedir}/lisp/*.lsp
+%dir %{_abusedir}/levels
 %{_abusedir}/levels/*
+%dir %{_abusedir}/art
 %{_abusedir}/art/*
+%dir %{_abusedir}/addon
+%dir %{_abusedir}/addon/*
 %{_abusedir}/addon/*/*
 %{_pixmapsdir}/*.png
 %{_applnkdir}/Games/Arcade/*.desktop
