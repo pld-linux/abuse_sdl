@@ -16,6 +16,7 @@ URL:		http://www.labyrinth.net.au/~trandor/abuse/
 BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_abusedir	%{_datadir}/games/abuse
@@ -63,30 +64,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README* TODO
+%doc AUTHORS README* TODO
 %attr(755,root,root) %{_bindir}/*
-# can't these be simplified?
 %dir %{_abusedir}
 %{_abusedir}/*.bmp
 %{_abusedir}/*.png
 %{_abusedir}/*.lsp
-%dir %{_abusedir}/sfx
-%{_abusedir}/sfx/*.wav
-%dir %{_abusedir}/register
-%{_abusedir}/register/*
-%dir %{_abusedir}/netlevel
-%{_abusedir}/netlevel/*.spe
-%dir %{_abusedir}/music
-%{_abusedir}/music/*
-%dir %{_abusedir}/lisp
-%{_abusedir}/lisp/*.lsp
-%dir %{_abusedir}/levels
-%{_abusedir}/levels/*
-%dir %{_abusedir}/art
-%{_abusedir}/art/*
-%dir %{_abusedir}/addon
-%dir %{_abusedir}/addon/*
-%{_abusedir}/addon/*/*
+%{_abusedir}/sfx
+%{_abusedir}/register
+%{_abusedir}/netlevel
+%{_abusedir}/music
+%{_abusedir}/lisp
+%{_abusedir}/levels
+%{_abusedir}/art
+%{_abusedir}/addon
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
 %{_mandir}/man6/*.6*
