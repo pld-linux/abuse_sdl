@@ -4,7 +4,7 @@ Name[pl]=Abuse
 Comment=Abuse Game
 Comment[pl]=Gra Abuse
 Icon=abuse.png
-Exec=abuse_sdl
+Exec=abuse.sdl
 Terminal=0
 Type=Application
 
