@@ -6,7 +6,9 @@ Release:	2
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	http://www.labyrinth.net.au/~trandor/abuse/files/%{name}-%{version}.tar.bz2
+# Source0-md5:	536bda2eaf3a77e6293c28c7157d4305
 Source1:	http://www.labyrinth.net.au/~trandor/abuse/files/abuse_datafiles.tar.gz
+# Source1-md5:	2b857668849b2dc7cd29cdd84a33c19e
 Source2:	%{name}.desktop
 Patch0:		%{name}-etc_dir.patch
 URL:		http://www.labyrinth.net.au/~trandor/abuse/
