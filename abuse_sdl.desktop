@@ -8,5 +8,5 @@ Icon=abuse.png
 Exec=abuse.sdl
 Terminal=false
 Type=Application
-
+Categories=Game;ArcadeGame;
 # vi: encoding=utf-8
