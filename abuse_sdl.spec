@@ -5,6 +5,7 @@ Version:	0.6.1
 Release:	2
 License:	GPL v2
 Group:		X11/Applications/Games
+#Source0Download: http://www.labyrinth.net.au/~trandor/abuse/
 Source0:	http://www.labyrinth.net.au/~trandor/abuse/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	536bda2eaf3a77e6293c28c7157d4305
 Source1:	http://www.labyrinth.net.au/~trandor/abuse/files/abuse_datafiles.tar.gz
@@ -44,7 +45,7 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir},%{_abusedir
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade/
+install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 install abuse.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 cp -R art	$RPM_BUILD_ROOT%{_abusedir}
