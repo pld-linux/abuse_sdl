@@ -2,7 +2,7 @@ Summary:	An SDL port of the game Abuse
 Summary(pl):	Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.7.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Games
 #Source0Download: http://www.labyrinth.net.au/~trandor/abuse/
@@ -35,27 +35,27 @@ ekranie, ma d¼wiêk stereo z panningiem.
 %patch0 -p1
 
 %build
+sed -i -e "s:/usr/local/share/games/abuse:%{_abusedir}:" src/sdlport/setup.cpp
+sed -i -e "s:(load \"lisp/ant.lsp\"):(load \"lisp/ant.lsp\")\n(load \"register/ant.lsp\"):" abuse.lsp
+
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir},%{_abusedir}/{art,addon,levels,lisp,music,netlevel,register,sfx}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT%{_abusedir}/{art,addon,levels,lisp,music,netlevel,register,sfx}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install abuse.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
-cp -R art	$RPM_BUILD_ROOT%{_abusedir}
-cp -R addon	$RPM_BUILD_ROOT%{_abusedir}
-cp -R levels	$RPM_BUILD_ROOT%{_abusedir}
-cp -R lisp	$RPM_BUILD_ROOT%{_abusedir}
-cp -R music	$RPM_BUILD_ROOT%{_abusedir}
-cp -R netlevel	$RPM_BUILD_ROOT%{_abusedir}
-cp -R register	$RPM_BUILD_ROOT%{_abusedir}
-cp -R sfx	$RPM_BUILD_ROOT%{_abusedir}
+for dir in art addon levels lisp music netlevel register sfx
+do
+cp -R $dir $RPM_BUILD_ROOT%{_abusedir}
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -87,5 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_abusedir}/addon/*
 %{_abusedir}/addon/*/*
 %{_pixmapsdir}/*.png
-%{_applnkdir}/Games/Arcade/*.desktop
+%{_desktopdir}/*.desktop
 %{_mandir}/man6/*.6*
