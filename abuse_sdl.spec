@@ -2,12 +2,13 @@ Summary:	An SDL port of the game Abuse
 Summary(pl):	Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.6.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	http://www.labyrinth.net.au/~trandor/abuse/files/%{name}-%{version}.tar.bz2
 Source1:	http://www.labyrinth.net.au/~trandor/abuse/files/abuse_datafiles.tar.gz
 Source2:	%{name}.desktop
+Patch0:		%{name}-home_etc.patch
 URL:		http://www.labyrinth.net.au/~trandor/abuse/
 BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	autoconf
@@ -28,6 +29,7 @@ ekranie, ma d¼wiêk stereo z panningiem.
 
 %prep
 %setup -q -a 1
+%patch0 -p1
 
 %build
 %configure
