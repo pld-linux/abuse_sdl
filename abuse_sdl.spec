@@ -1,8 +1,8 @@
 Summary:	An SDL port of the game Abuse
 Summary(pl):	Port SDL gry Abuse
 Name:		abuse_sdl
-Version:	0.6.1
-Release:	2
+Version:	0.7.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
 #Source0Download: http://www.labyrinth.net.au/~trandor/abuse/
