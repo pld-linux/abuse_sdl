@@ -8,7 +8,7 @@ Group:		X11/Applications/Games
 Source0:	http://www.labyrinth.net.au/~trandor/abuse/files/%{name}-%{version}.tar.bz2
 Source1:	http://www.labyrinth.net.au/~trandor/abuse/files/abuse_datafiles.tar.gz
 Source2:	%{name}.desktop
-Patch0:		%{name}-home_etc.patch
+Patch0:		%{name}-etc_dir.patch
 URL:		http://www.labyrinth.net.au/~trandor/abuse/
 BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	autoconf
