@@ -2,7 +2,7 @@ Summary:	An SDL port of the game Abuse
 Summary(pl):	Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.7.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications/Games
 #Source0Download: http://www.labyrinth.net.au/~trandor/abuse/
@@ -37,6 +37,7 @@ ekranie, ma d¼wiêk stereo z panningiem.
 %build
 sed -i -e "s:/usr/local/share/games/abuse:%{_abusedir}:" src/sdlport/setup.cpp
 sed -i -e "s:(load \"lisp/ant.lsp\"):(load \"lisp/ant.lsp\")\n(load \"register/ant.lsp\"):" abuse.lsp
+cp /usr/share/automake/config.sub .
 
 %configure
 %{__make}
