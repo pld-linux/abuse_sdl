@@ -1,5 +1,5 @@
 Summary:	An SDL port of the game Abuse
-Summary(pl):	Port SDL gry Abuse
+Summary(pl.UTF-8):   Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.7.0
 Release:	3
@@ -26,10 +26,10 @@ Abuse-SDL is a port of Abuse, the classic Crack-Dot-Com game, to the
 SDL library. It can run at any color depth, in a window or fullscreen,
 and it has stereo sound with sound panning.
 
-%description -l pl
+%description -l pl.UTF-8
 Abuse-SDL to port Abuse, klasycznej gry Crack-Dot-Com, dla biblioteki
-SDL. Mo¿e dzia³aæ w dowolnej g³êbi koloru, w okienku lub na pe³nym
-ekranie, ma d¼wiêk stereo z panningiem.
+SDL. MoÅ¼e dziaÅ‚aÄ‡ w dowolnej gÅ‚Ä™bi koloru, w okienku lub na peÅ‚nym
+ekranie, ma dÅºwiÄ™k stereo z panningiem.
 
 %prep
 %setup -q -a 1
