@@ -1,5 +1,5 @@
 Summary:	An SDL port of the game Abuse
-Summary(pl.UTF-8):   Port SDL gry Abuse
+Summary(pl.UTF-8):	Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.7.0
 Release:	3
