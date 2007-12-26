@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Abuse
 Name[pl]=Abuse
 Comment=Abuse Game
 Comment[pl]=Gra Abuse
-Icon=abuse.png
+Icon=abuse
 Exec=abuse.sdl
 Terminal=false
 Type=Application
