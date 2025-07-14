@@ -33,7 +33,7 @@ ekranie, ma dźwięk stereo z panningiem.
 
 %prep
 %setup -q -a 1
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 sed -i -e "s:/usr/local/share/games/abuse:%{_abusedir}:" src/sdlport/setup.cpp
