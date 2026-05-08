@@ -1,0 +1,110 @@
+--- src/imlib/include/macs.hpp	2026-05-08 12:48:15.948930580 +0200
++++ src/imlib/include/macs.hpp	2026-05-08 12:48:25.549969550 +0200
+@@ -16,12 +16,19 @@
+ #endif
+ 
+ 
++#ifndef __cplusplus
+ #ifndef min
+ #define min(x,y) (x<y ? x:y)
+ #endif
+ #ifndef max
+ #define max(x,y) (x>y ? x:y)
+ #endif
++#else
++template<typename A, typename B>
++inline auto min(A a, B b) -> decltype(a < b ? a : b) { return a < b ? a : b; }
++template<typename A, typename B>
++inline auto max(A a, B b) -> decltype(a > b ? a : b) { return a > b ? a : b; }
++#endif
+ 
+ #define uchar  unsigned char
+ #define schar  signed char
+--- src/imlib/jmalloc.cpp	2026-05-08 12:48:15.950453739 +0200
++++ src/imlib/jmalloc.cpp	2026-05-08 12:48:25.560302534 +0200
+@@ -758,7 +758,7 @@
+     fprintf(stderr,"Memory available : %d\n",j_available());
+     if (j_available()<min_size)
+     {
+-      fprintf(stderr,not_enough_total_memory_message);
++      fprintf(stderr,"%s",not_enough_total_memory_message);
+       exit(0);
+     }
+ 
+--- src/innet.cpp	2026-05-08 12:48:15.943179499 +0200
++++ src/innet.cpp	2026-05-08 12:48:25.569666089 +0200
+@@ -148,7 +148,7 @@
+ 		net_server=prot->get_node_address(sn,DEFAULT_COMM_PORT,0);
+ 		if (!net_server)
+ 		{
+-			dprintf(symbol_str("unable_locate"));
++			dprintf("%s", symbol_str("unable_locate"));
+ 			exit(0);
+ 		}
+ 		dprintf("Server located!  Please wait while data loads....\n");
+@@ -400,7 +400,7 @@
+ 
+     if (reg==2)   // too many players
+     {
+-      fprintf(stderr,symbol_str("max_players"));
++      fprintf(stderr,"%s",symbol_str("max_players"));
+       delete sock;
+       return 0;
+     }
+@@ -410,14 +410,14 @@
+ 
+     if (reg && !registered)
+     {
+-      fprintf(stderr,symbol_str("net_not_reg"));
++      fprintf(stderr,"%s",symbol_str("net_not_reg"));
+       delete sock; 
+       return 0;
+     } 
+ 
+     if (!reg && registered)
+     {
+-      fprintf(stderr,symbol_str("server_not_reg"));
++      fprintf(stderr,"%s",symbol_str("server_not_reg"));
+       delete sock;
+       return 0;
+     }
+--- src/cache.cpp	2026-05-08 12:48:15.944866726 +0200
++++ src/cache.cpp	2026-05-08 12:48:25.572069033 +0200
+@@ -36,7 +36,7 @@
+ int crc_manager::write_crc_file(char *filename)  // return 0 on failure
+ {
+   char msg[100];
+-  sprintf(msg,symbol_str("calc_crc"));  // this may take some time, show the user a status indicator
++  sprintf(msg,"%s",symbol_str("calc_crc"));  // this may take some time, show the user a status indicator
+   if (stat_man) stat_man->push(msg,NULL);
+ 
+   int i,total=0;
+--- src/dev.cpp	2026-05-08 12:48:15.947212100 +0200
++++ src/dev.cpp	2026-05-08 12:48:25.579114808 +0200
+@@ -1069,7 +1069,7 @@
+           for (x=0;x<l;x++)
+             the_game->put_bg(rx+x,ry+y,i++); 
+ 	dprintf("%dx%d\n",l,h);
+-      } else dprintf(symbol_str("unchop1"));
++      } else dprintf("%s", symbol_str("unchop1"));
+ 
+     }      
+   } 
+@@ -1091,7 +1091,7 @@
+     {
+       current_level->set_size(l,w);    
+       dprintf("level is now %dx%d\n",l,w);
+-    } else dprintf(symbol_str("size1"));
++    } else dprintf("%s", symbol_str("size1"));
+ 
+ 
+   }
+@@ -1129,7 +1129,7 @@
+ 
+   if (!strcmp(fword,"esave"))
+   {
+-    dprintf(symbol_str("esave"));
++    dprintf("%s", symbol_str("esave"));
+     save();
+   }
+ 

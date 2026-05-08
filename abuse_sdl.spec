@@ -2,7 +2,7 @@ Summary:	An SDL port of the game Abuse
 Summary(pl.UTF-8):	Port SDL gry Abuse
 Name:		abuse_sdl
 Version:	0.7.0
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		X11/Applications/Games
 #Source0Download: http://www.labyrinth.net.au/~trandor/abuse/
@@ -12,6 +12,7 @@ Source1:	http://www.labyrinth.net.au/~trandor/abuse/files/abuse_datafiles.tar.gz
 # Source1-md5:	2b857668849b2dc7cd29cdd84a33c19e
 Source2:	%{name}.desktop
 Patch0:		%{name}-etc_dir.patch
+Patch1:		%{name}-macs-cxx.patch
 URL:		http://www.labyrinth.net.au/~trandor/abuse/
 BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	autoconf
@@ -34,6 +35,7 @@ ekranie, ma dźwięk stereo z panningiem.
 %prep
 %setup -q -a 1
 %patch -P0 -p1
+%patch -P1 -p0
 
 %build
 sed -i -e "s:/usr/local/share/games/abuse:%{_abusedir}:" src/sdlport/setup.cpp
